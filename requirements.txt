@@ -1,0 +1,5 @@
+pandas==2.2.3
+openai==3.37.0
+SQLAlchemy==2.0.40
+python-dotenv==1.1.0
+pydantic-ai==2.61.0
