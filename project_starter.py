@@ -180,7 +180,8 @@ def parse_customer_request(request_text: str, request_date: str) -> ParsedReques
         r"(?<![\d,])(?P<quantity>\d[\d,]*)\s+"
         r"(?P<unit>sheets?|reams?|rolls?|packets?|boxes?|units?)?\s*"
         r"(?:of\s+)?(?P<description>.*?)"
-        r"(?=,\s*(?:[-•]\s*)?(?:and\s+)?\d|\s+and\s+\d|\s+by\s+[A-Za-z]+\s+\d|$)",
+        r"(?=,\s*(?:[-•]\s*)?(?:(?:and|along with)\s+)?\d|"
+        r"\s+(?:and|along with)\s+\d|\s+by\s+[A-Za-z]+\s+\d|$)",
         re.IGNORECASE,
     )
 

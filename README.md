@@ -65,7 +65,7 @@ The command resets the SQLite database with seed 137, processes every row in `qu
 | Requests with a cash-balance change | 9 |
 | Rejected requests with reasons | 11 |
 | Starting cash | $45,059.70 |
-| Final cash | $46,090.42 |
+| Final cash | $46,093.24 |
 
 The generated responses explain discounts, stock or supplier constraints, and delivery feasibility. They do not expose internal margins, credentials, stack traces, or database errors.
 

@@ -48,10 +48,16 @@ Pydantic AI was selected because its typed agents, framework-native tools, progr
 | R11 | Evaluate every row in `quote_requests_sample.csv` | Evidence | `test_results.csv` | 20 rows and 20 unique request IDs confirmed | Verified |
 | R12 | At least three fulfilled requests and three cash changes | Evidence | `test_results.csv` | 9 fulfilled requests and 9 cash changes | Verified |
 | R13 | At least one request remains unfulfilled with a clear reason | Evidence | `test_results.csv` | 11 rejected requests, each with a reason | Verified |
-| R14 | Customer output is complete, reasoned, and excludes margins, internals, and unnecessary PII | Quality | `project_starter.py`, `test_results.csv` | Content assertions, prohibited-string checks, and clean runtime output | Verified |
+| R14 | Customer output is complete, reasoned, and excludes margins, internals, and unnecessary PII | Quality | `project_starter.py`, `test_results.csv` | Content assertions, Request 4 line-preservation regression, prohibited-string checks, and clean runtime output | Verified |
 | R15 | Submit one Python implementation file | Submission | `project_starter.py` | Submission inventory contains one `.py` file; development tests remain outside | Verified |
 | R16 | Report explains architecture, results, strengths, and at least two improvements | Evidence | `reflective_report.docx` | Six-page render and page-by-page visual inspection | Verified |
-| R17 | Code is readable, appropriately documented, and modular within the single-file constraint | Quality | `project_starter.py` | Source review, compilation, dependency check, and 17 passing tests | Verified |
+| R17 | Code is readable, appropriately documented, and modular within the single-file constraint | Quality | `project_starter.py` | Source review, compilation, dependency check, and 18 passing tests | Verified |
+
+## Evaluator feedback resolution
+
+| Feedback | Requirement | Reproduction | Focused change | Regression evidence | Target | Status |
+|---|---|---|---|---|---|---|
+| Request 4 confirmed only cardstock and silently omitted 250 sheets of printer paper. | Preserve every requested line through parsing and response generation. | The parser returned only `Cardstock, 500` for the supplied Request 4 wording. | Recognize `along with` as a separator between quantified order lines without changing the agent architecture. | The focused regression first failed with the missing line, then passed; refreshed row 4 now confirms both `500 Cardstock` and `250 Standard copy paper`. | Public `main` | Verified and included in the corrective `main` update. |
 
 ## Key implementation assumptions
 
